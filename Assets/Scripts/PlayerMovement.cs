@@ -35,9 +35,7 @@ public class PlayerMovement : MonoBehaviour
                 rb.AddForce(0, -150f * Time.deltaTime, _speed * Time.deltaTime, ForceMode.VelocityChange);
             }
 
-
-
-            if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) || Input.touchCount == 1)
             {
                 isGetLow = false;
                 if (isOnGround)
@@ -48,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+                if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || Input.touchCount == 2)
                 {
                     if (!isGetLow)
                     {
@@ -60,8 +58,9 @@ public class PlayerMovement : MonoBehaviour
                         }
                     }
                 }
+
                 else
-                {
+                        {
                     isGetLow = false;
                     GetComponent<Animation>().CrossFade("Run");
                     if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))

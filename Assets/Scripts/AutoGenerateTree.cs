@@ -10,9 +10,13 @@ public class AutoGenerateTree : AutoGenerate
         this.Time = Time;
     }
 
+    public float GetTime()
+    {
+        return Time;
+    }
+
     public override void Start()
     {
-        Time = 1.5f;
         InvokeRepeating(nameof(UpdateAfterTimeSet), 0, Time);
     }
 

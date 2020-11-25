@@ -5,6 +5,7 @@ public class PlayerCollision : MonoBehaviour
     public PlayerMovement Player;
     private bool isOnGround = true;
     public GameManager Manager;
+    public GameObject Ground;
 
     public bool GetIsOnGround()
     {
@@ -30,6 +31,14 @@ public class PlayerCollision : MonoBehaviour
         if (collision.collider.CompareTag("Ground"))
         {
             isOnGround = false;
+        }
+    }
+
+    private void Update()
+    {
+        if (Ground.transform.position.y - Player.transform.position.y > 5f)
+        {
+            Manager.GameOver();
         }
     }
 }

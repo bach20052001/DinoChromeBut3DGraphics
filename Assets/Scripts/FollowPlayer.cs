@@ -8,6 +8,14 @@ public class FollowPlayer : MonoBehaviour
     private float DistanceX;
     public GameObject Player;
 
+    public void Toggle()
+    {
+        GameObject View1 = transform.GetChild(0).gameObject;
+        GameObject View2 = transform.GetChild(1).gameObject;
+        View1.SetActive(!View1.activeSelf);
+        View2.SetActive(!View2.activeSelf);
+    }
+
     private void Start()
     {
         DistanceZ = Player.transform.position.z - transform.position.z;

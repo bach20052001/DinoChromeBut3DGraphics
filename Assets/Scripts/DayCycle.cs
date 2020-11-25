@@ -8,6 +8,6 @@ public class DayCycle : MonoBehaviour
     void Update()
     {
         rotateSpeed = Score.GetMyScore() * Time.deltaTime;
-        transform.Rotate(0.05f, Input.GetAxis("Horizontal") * rotateSpeed, 0);
+        transform.Rotate(0.025f, Input.GetAxis("Horizontal") * rotateSpeed, 0);
     }
 }
