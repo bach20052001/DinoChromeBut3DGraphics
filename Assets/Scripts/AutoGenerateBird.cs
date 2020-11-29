@@ -16,7 +16,7 @@ public class AutoGenerateBird : AutoGenerate
 
     public override void Start()
     {
-        InvokeRepeating(nameof(UpdateAfterTimeSet), 0, Time);
+        InvokeRepeating(nameof(UpdateAfterTimeSet), Time / 2, Time);
     }
 
     public override void UpdateAfterTimeSet()

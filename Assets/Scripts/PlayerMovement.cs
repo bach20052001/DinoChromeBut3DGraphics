@@ -3,7 +3,7 @@
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody rb;
-    public float _speed = 30f;
+    public float _speed = 40f;
     public GetScore Score;
     private PlayerCollision pc;
     private bool isOnGround;
@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     {
         pc = GetComponent<PlayerCollision>();
         rb = GetComponent<Rigidbody>();
-        _speed = 30f;
+        _speed = 40f;
         isDead = false;
     }
 
@@ -26,13 +26,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isDead)
         {
-            _speed = 30f + Score.GetMyScore() * Time.deltaTime / 2;
+            _speed = 40f + Score.GetMyScore() * Time.deltaTime / 2;
             rb.AddForce(0, 0, _speed * Time.deltaTime, ForceMode.VelocityChange);
             isOnGround = pc.GetIsOnGround();
 
             if (!isOnGround)
             {
-                rb.AddForce(0, -150f * Time.deltaTime, _speed * Time.deltaTime, ForceMode.VelocityChange);
+                rb.AddForce(0, -150f * Time.deltaTime, _speed * Time.deltaTime / Mathf.Sqrt(2), ForceMode.VelocityChange);
             }
 
             if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) || Input.touchCount == 1)
@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
                 if (isOnGround)
                 {
                     GetComponent<Animation>().CrossFade("Jump");
-                    rb.AddForce(0, 1750f * Time.deltaTime, _speed * Time.deltaTime / 2f, ForceMode.VelocityChange);
+                    rb.AddForce(0, 1750f * Time.deltaTime, _speed * Time.deltaTime / Mathf.Sqrt(2), ForceMode.VelocityChange);
                 }
             }
             else

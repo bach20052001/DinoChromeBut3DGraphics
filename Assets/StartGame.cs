@@ -5,6 +5,8 @@ public class StartGame : MonoBehaviour
 {
     public PlayerMovement Player;
     private Rigidbody rb;
+    public GameObject Birds;
+    public GameObject Trees;
 
     private void Start()
     {
@@ -19,6 +21,8 @@ public class StartGame : MonoBehaviour
             rb.AddForce(0, 1000f * Time.deltaTime, 0, ForceMode.VelocityChange);
             this.enabled = false;
             Player.enabled = true;
+            Birds.SetActive(true);
+            Trees.SetActive(true);
         }   
     }
 }

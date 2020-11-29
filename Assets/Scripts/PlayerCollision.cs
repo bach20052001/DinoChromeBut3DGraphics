@@ -36,7 +36,7 @@ public class PlayerCollision : MonoBehaviour
 
     private void Update()
     {
-        if (Ground.transform.position.y - Player.transform.position.y > 5f)
+        if (Player.transform.position.y < -5f)
         {
             Manager.GameOver();
         }

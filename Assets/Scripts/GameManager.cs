@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.gameObject.GetComponent<AutoGenerateTree>().SetTime(1.5f);
+        transform.gameObject.GetComponent<AutoGenerateTree>().SetTime(1f);
         transform.gameObject.GetComponent<AutoGenerateBird>().SetTime(12.5f);
     }
 }
